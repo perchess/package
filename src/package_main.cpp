@@ -7,10 +7,11 @@ int main(int argc, char **argv)
   ros::NodeHandle n; // subscribe or another
   ros::Publisher pub = n.advertise<std_msgs::Int32>("/topic", 1000);
 
-  ros::Rate loop_rate(1);
+  ros::Rate loop_rate(5);
   int32_t input = 0;
+  loop_rate.sleep();
+  ros::Rate loop_rate(1);
   while (std::cin >> input){
-    std::cout << "Give input: ";
     //std::cin.clear();
     //std::cin.ignore(INT_MAX,'\n');
 
