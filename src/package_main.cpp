@@ -7,15 +7,14 @@ int main(int argc, char **argv)
   ros::NodeHandle n; // subscribe or another
   ros::Publisher pub = n.advertise<std_msgs::Int32>("/topic", 1000);
 
-  ros::Rate loop_rate(5);
+  ros::Rate loop_rate(1);
   int32_t input = 0;
   loop_rate.sleep();
-  ros::Rate loop_rate(1);
   while (std::cin >> input){
     //std::cin.clear();
     //std::cin.ignore(INT_MAX,'\n');
 
-    std::cin >> input;
+    //std::cin >> input;
     std_msgs::Int32 msg;
     msg.data = input;
     pub.publish(msg);
